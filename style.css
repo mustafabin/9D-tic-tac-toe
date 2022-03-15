@@ -39,13 +39,24 @@ body {
 .bottom {
   border-bottom: none;
 }
+.enabled {
+  background-image: radial-gradient(
+    white,
+    rgba(211, 246, 179, 0.383),
+    rgb(239, 243, 236)
+  );
+}
+.disable {
+  pointer-events: none;
+}
+
 .row {
   display: flex;
   width: 100vw;
   justify-content: center;
 }
 
-.mini-arena-container {
+.mini-box {
   width: 20%;
   height: 20%;
   padding: 5%;
@@ -53,7 +64,7 @@ body {
   border: 1px solid red;
   border-radius: 10%;
 }
-.mini-arena-container:hover {
+.mini-box:hover {
   padding: 6%;
   background-color: white;
 }
