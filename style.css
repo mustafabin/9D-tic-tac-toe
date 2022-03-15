@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+  /* border: 1px solid red; */
+}
+body {
+  background-color: whitesmoke;
+}
+.game-area {
+  margin-top: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  width: fit-content;
+  /* border: 1px solid blue; */
+  justify-content: center;
+  align-items: center;
+}
+.arena-container {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(0, 3, 1);
+  border-left: none;
+  width: 30vw;
+  height: 30vw;
+  max-width: 250px;
+  max-height: 250px;
+}
+.last {
+  border-right: none;
+}
+.top {
+  border-top: none;
+}
+.bottom {
+  border-bottom: none;
+}
+.row {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+.mini-arena-container {
+  width: 20%;
+  height: 20%;
+  padding: 5%;
+  margin: 2px;
+  border: 1px solid red;
+  border-radius: 10%;
+}
+.mini-arena-container:hover {
+  padding: 6%;
+  background-color: white;
+}
