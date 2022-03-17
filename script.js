@@ -40,6 +40,7 @@ let toggleTurn = () => {
   }
 };
 let play = (cell, self) => {
+  edgeCase = false;
   let p = document.createElement("p");
   p.innerText = player.turn;
   p.style.color = player.color;
@@ -79,27 +80,31 @@ let isMiniOver = (i) => {
     //since all three postions have to equal i just need to check pos1 if its empty
     if (pos1) {
       if (pos1 == pos2 && pos1 == pos3) {
-        conquer(pos1, bigCell);
+        conquer(pos1, bigCell, i);
         return true;
       }
     }
   }
   return false;
 };
-let conquer = (winner, cell) => {
+let conquer = (winner, cell, i) => {
+  let miniCell = cell.querySelector(`.mini-box[data-index="${i}"]`);
   cell.dataset.conquered = "y";
+  if (miniCell.dataset.index == i) {
+    edgeCase = true;
+  }
   if (winner == "X") {
     cell.classList.add("red-conquer");
   } else {
     cell.classList.add("blue-conquer");
   }
 };
-//set to -1 so i do try to disable the last index if the user just started
 let lastActiveIndex = -1;
 let player = {
   turn: "X",
   color: "red",
 };
+let edgeCase = false;
 let ultiGameState = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let winningCombos = [
   [0, 1, 2],
@@ -121,9 +126,14 @@ document.querySelectorAll(".mini-box").forEach((cell) => {
     if (!cell.innerText) {
       let i = cell.dataset.index;
       if (!isFull(i)) {
-        play(cell, self);
         disableAllBut(i);
+        play(cell, self);
+        if (edgeCase) {
+          enableAll();
+          disable(self);
+        }
       } else {
+        play(cell, self);
         disable(self);
         enableAll();
       }
