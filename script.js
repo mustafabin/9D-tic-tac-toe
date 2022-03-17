@@ -38,6 +38,7 @@ let toggleTurn = () => {
     player.turn = "X";
     player.color = "red";
   }
+  document.documentElement.style.setProperty("--turnColor", `${player.color}`);
 };
 let play = (cell, self) => {
   edgeCase = false;
@@ -52,7 +53,7 @@ let play = (cell, self) => {
 let isFull = (i) => {
   let cell = document.querySelector(`.arena-container[data-index="${i}"]`);
   let arr = cell.querySelectorAll(".mini-box");
-  if (cell.dataset.conquered == "n") {
+  if (!cell.dataset.conquered) {
     for (let cell = 0; cell < arr.length; cell++) {
       //if its empty
       if (!arr[cell].textContent) {
@@ -89,16 +90,37 @@ let isMiniOver = (i) => {
 };
 let conquer = (winner, cell, i) => {
   let miniCell = cell.querySelector(`.mini-box[data-index="${i}"]`);
-  cell.dataset.conquered = "y";
   if (miniCell.dataset.index == i) {
     edgeCase = true;
   }
   if (winner == "X") {
+    cell.dataset.conquered = "X";
     cell.classList.add("red-conquer");
   } else {
+    cell.dataset.conquered = "O";
     cell.classList.add("blue-conquer");
   }
+  checkGame();
 };
+let checkGame = () => {
+  let pos1, pos2, pos3;
+  document.querySelectorAll(".arena-container").forEach((bigCell, i) => {
+    ultiGameState[i] = bigCell.dataset.conquered;
+    for (let i = 0; i < winningCombos.length; i++) {
+      pos1 = ultiGameState[winningCombos[i][0]];
+      pos2 = ultiGameState[winningCombos[i][1]];
+      pos3 = ultiGameState[winningCombos[i][2]];
+      //check if there arent empty
+      //since all three postions have to equal i just need to check pos1 if its empty
+      if (pos1) {
+        if (pos1 == pos2 && pos1 == pos3) {
+          displayWinner(pos1);
+        }
+      }
+    }
+  });
+};
+let displayWinner = (winner) => {};
 let lastActiveIndex = -1;
 let player = {
   turn: "X",
@@ -138,5 +160,21 @@ document.querySelectorAll(".mini-box").forEach((cell) => {
         enableAll();
       }
     }
+  });
+});
+
+//confetii code
+var myCanvas = document.createElement("canvas");
+document.body.prepend(myCanvas);
+
+var myConfetti = confetti.create(myCanvas, {
+  resize: true,
+  useWorker: true,
+});
+
+document.querySelector("#confettiBtn").addEventListener("click", () => {
+  myConfetti({
+    particleCount: 200,
+    spread: 150,
   });
 });

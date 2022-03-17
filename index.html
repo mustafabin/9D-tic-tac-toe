@@ -11,9 +11,19 @@
 </head>
 
 <body>
+  <div class="game-over">
+    <div class="modal">
+      <h1>THE WINNER ISSS : </h1>
+      <h1 class="winner">X</h1>
+      <button id="confettiBtn">
+        <p class="rainbow-text">MOAR CONFETTI</p>
+      </button>
+    </div>
+  </div>
+  <h1 class="title">9D TIC TAC TOE</h1>
   <div class="game-area">
     <div class="row">
-      <div class="arena-container top " data-conquered="n" data-index="0">
+      <div class="arena-container top " data-conquered="" data-index="0">
         <div class="mini-box" data-selfIndex="0" data-index="0"></div>
         <div class="mini-box" data-selfIndex="0" data-index="1"></div>
         <div class="mini-box" data-selfIndex="0" data-index="2"></div>
@@ -24,7 +34,7 @@
         <div class="mini-box" data-selfIndex="0" data-index="7"></div>
         <div class="mini-box" data-selfIndex="0" data-index="8"></div>
       </div>
-      <div class="arena-container top" data-conquered="n" data-index="1">
+      <div class="arena-container top" data-conquered="" data-index="1">
         <div class="mini-box" data-selfIndex="1" data-index="0"></div>
         <div class="mini-box" data-selfIndex="1" data-index="1"></div>
         <div class="mini-box" data-selfIndex="1" data-index="2"></div>
@@ -35,7 +45,7 @@
         <div class="mini-box" data-selfIndex="1" data-index="7"></div>
         <div class="mini-box" data-selfIndex="1" data-index="8"></div>
       </div>
-      <div class="arena-container top last" data-conquered="n" data-index="2">
+      <div class="arena-container top last" data-conquered="" data-index="2">
         <div class="mini-box" data-selfIndex="2" data-index="0"></div>
         <div class="mini-box" data-selfIndex="2" data-index="1"></div>
         <div class="mini-box" data-selfIndex="2" data-index="2"></div>
@@ -49,7 +59,7 @@
 
     </div>
     <div class="row">
-      <div class="arena-container " data-conquered="n" data-index="3">
+      <div class="arena-container " data-conquered="" data-index="3">
         <div class="mini-box" data-selfIndex="3" data-index="0"></div>
         <div class="mini-box" data-selfIndex="3" data-index="1"></div>
         <div class="mini-box" data-selfIndex="3" data-index="2"></div>
@@ -60,7 +70,7 @@
         <div class="mini-box" data-selfIndex="3" data-index="7"></div>
         <div class="mini-box" data-selfIndex="3" data-index="8"></div>
       </div>
-      <div class="arena-container" data-conquered="n" data-index="4">
+      <div class="arena-container" data-conquered="" data-index="4">
         <div class="mini-box" data-selfIndex="4" data-index="0"></div>
         <div class="mini-box" data-selfIndex="4" data-index="1"></div>
         <div class="mini-box" data-selfIndex="4" data-index="2"></div>
@@ -71,7 +81,7 @@
         <div class="mini-box" data-selfIndex="4" data-index="7"></div>
         <div class="mini-box" data-selfIndex="4" data-index="8"></div>
       </div>
-      <div class="arena-container last" data-conquered="n" data-index="5">
+      <div class="arena-container last" data-conquered="" data-index="5">
         <div class="mini-box" data-selfIndex="5" data-index="0"></div>
         <div class="mini-box" data-selfIndex="5" data-index="1"></div>
         <div class="mini-box" data-selfIndex="5" data-index="2"></div>
@@ -85,7 +95,7 @@
 
     </div>
     <div class="row">
-      <div class="arena-container bottom" data-conquered="n" data-index="6">
+      <div class="arena-container bottom" data-conquered="" data-index="6">
         <div class="mini-box" data-selfIndex="6" data-index="0"></div>
         <div class="mini-box" data-selfIndex="6" data-index="1"></div>
         <div class="mini-box" data-selfIndex="6" data-index="2"></div>
@@ -96,7 +106,7 @@
         <div class="mini-box" data-selfIndex="6" data-index="7"></div>
         <div class="mini-box" data-selfIndex="6" data-index="8"></div>
       </div>
-      <div class="arena-container bottom" data-conquered="n" data-index="7">
+      <div class="arena-container bottom" data-conquered="" data-index="7">
         <div class="mini-box" data-selfIndex="7" data-index="0"></div>
         <div class="mini-box" data-selfIndex="7" data-index="1"></div>
         <div class="mini-box" data-selfIndex="7" data-index="2"></div>
@@ -107,7 +117,7 @@
         <div class="mini-box" data-selfIndex="7" data-index="7"></div>
         <div class="mini-box" data-selfIndex="7" data-index="8"></div>
       </div>
-      <div class="arena-container bottom last" data-conquered="n" data-index="8">
+      <div class="arena-container bottom last" data-conquered="" data-index="8">
         <div class="mini-box" data-selfIndex="8" data-index="0"></div>
         <div class="mini-box" data-selfIndex="8" data-index="1"></div>
         <div class="mini-box" data-selfIndex="8" data-index="2"></div>
@@ -121,7 +131,7 @@
 
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="script.js" async defer></script>
 </body>
 
