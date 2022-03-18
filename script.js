@@ -178,7 +178,9 @@ document.querySelectorAll(".mini-box").forEach((cell) => {
 
 //confetii code
 var myCanvas = document.createElement("canvas");
-document.body.prepend(myCanvas);
+let modal = document.querySelector(".modal");
+// document.body.prepend(myCanvas);
+modal.prepend(myCanvas);
 
 var myConfetti = confetti.create(myCanvas, {
   resize: true,
