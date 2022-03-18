@@ -39,6 +39,7 @@ let toggleTurn = () => {
     player.color = "red";
   }
   document.documentElement.style.setProperty("--turnColor", `${player.color}`);
+  document.querySelector(".turn-display").textContent = player.turn;
 };
 let play = (cell, self) => {
   edgeCase = false;
@@ -120,7 +121,19 @@ let checkGame = () => {
     }
   });
 };
-let displayWinner = (winner) => {};
+let displayWinner = (winner) => {
+  document.querySelector(".game-over").style.display = "flex";
+  document.querySelector("canvas").style.display = "block";
+  document.querySelector(".winner").textContent = winner;
+  if (winner == "X") {
+    console.log(winner);
+    document.querySelector(".winner").style.color = "red";
+  }
+  myConfetti({
+    particleCount: 200,
+    spread: 150,
+  });
+};
 let lastActiveIndex = -1;
 let player = {
   turn: "X",
@@ -142,7 +155,7 @@ let winningCombos = [
 //for every indivdual cell i attach an event listener the directs the focus to the correct spot
 //by matching the indexs of the smaller games to the bigger game
 document.querySelectorAll(".mini-box").forEach((cell) => {
-  cell.addEventListener("click", (e) => {
+  cell.addEventListener("click", () => {
     //if the cell is empty than its a vaild move
     let self = cell.dataset.selfindex;
     if (!cell.innerText) {
